@@ -1,0 +1,116 @@
+<!DocType html>
+<html>
+<head>
+<title>Routing</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<link rel="import" href="elements.html">
+
+</head>
+<body unresolved class="fullbleed layout vertical">
+
+
+<template is="dom-bind"  id="app">
+<paper-drawer-panel id="paperDrawerPanel">
+  <paper-scroll-header-panel drawer fixed>
+	<paper-toolbar id="drawerToolbar">
+  <span class="paper-font-title">Menu</span>
+    </paper-toolbar>
+
+	<paper-menu class="list" attr-for-selected="data-route" selected="[[route]]">
+          <a data-route="home" href="/" on-click="onDataRouteClick">
+            <iron-icon icon="home">
+			</iron-icon>
+			<span>Home</span>
+          </a>
+
+          <a data-route="users" href="/users" on-click="onDataRouteClick">
+            <iron-icon icon="info"></iron-icon>
+			 <span>Users</span>
+          </a>
+
+          <a data-route="contact" href="/contact" on-click="onDataRouteClick">
+            <iron-icon icon="mail"></iron-icon>
+            <span>Contact</span>
+          </a>
+        </paper-menu>
+
+   </paper-scroll-header-panel>
+
+  <paper-scroll-header-panel main condenses keep-condensed-header>
+
+		<paper-toolbar id="mainToolbar" class="tall"><paper-icon-button id="paperToggle" icon="menu" paper-drawer-toggle></paper-icon-button>
+          <span class="horizontal end-justified layout">Santosh Kumar Koatakonda</span></paper-toolbar>
+
+	 <div class="content">
+	 </br>
+			</br>
+			</br>
+	  <iron-pages attr-for-selected="data-route" selected="{{route}}">
+			<section data-route="home"  class="horizontal center-justified layout">
+
+              <paper-material elevation="1">
+				<div style="display:inline-block">
+					<span>Inbox</span>
+				<paper-badge label="3"></paper-badge>
+
+
+				</div>
+				</br>
+				<paper-slider></paper-slider>
+
+				</br>
+
+				<paper-tabs selected="{{selected}}">
+					<paper-tab>TAB 1</paper-tab>
+					<paper-tab>TAB 2</paper-tab>
+					<paper-tab>TAB 3</paper-tab>
+		    </paper-tabs>
+
+			<iron-pages selected="{{selected}}">
+				<div>
+				Page 3
+				</div>
+				<div>Page 2</div>
+				<div>Page 3</div>
+			</iron-pages>
+              </paper-material>
+			</section>
+
+			<section data-route="users" class="horizontal center-justified layout">
+              <paper-material elevation="1">
+				<paper-card heading="Card Title">
+					<div class="card-content">Some content</div>
+					<div class="card-actions">
+						<paper-button raised onclick="document.querySelector('#toast1').show()"  id="my-button">Click Me</paper-button>
+						<paper-toast id="toast1" text="Santosh Kumar" ></paper-toast>
+					</div>
+				</paper-card>
+              </paper-material>
+			</section>
+
+			<section data-route="contact" class="horizontal center-justified layout">
+              <paper-material elevation="1">
+				<paper-item>
+					<paper-item-body two-line>
+						<div>Show your status</div>
+						<div secondary>Your status is visible to everyone</div>
+					</paper-item-body>
+					<iron-icon icon="warning"></iron-icon>
+				</paper-item>
+              </paper-material>
+			</section>
+
+	  </iron-pages>
+	 </div>
+
+  </paper-scroll-header-panel>
+</paper-drawer-panel>
+
+</template>
+
+
+
+</body>
+
+</html>
